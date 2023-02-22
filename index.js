@@ -39,11 +39,7 @@ const getCoefficients = (str) => {
     return;
   }
 
-  return {
-    a: +numArray[0],
-    b: +numArray[1],
-    c: +numArray[2],
-  };
+  return numArray.map(num => +num);
 };
 
 const calculate = (a, b, c) => {
@@ -70,11 +66,11 @@ const nonInteractiveMode = async () => {
       handleError('Error: invalid file format', true);
     }
 
-    if (!coefficients.a) {
+    if (!coefficients[0]) {
       handleError('Error: a cannot be zero', true);
     }
 
-    const { a, b, c } = coefficients;
+    const [a, b, c] = coefficients;
     showEquation(a, b, c);
     const roots = calculate(a, b, c);
     showRoots(roots);
