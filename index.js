@@ -1,3 +1,5 @@
+const fs = require('fs/promises');
+
 const showEquation = (a, b , c) => {
   const equationStr = `(${a}) x^2 + (${b}) x + (${c}) = 0`;
   console.log(`Equation is: ${equationStr}`);
@@ -33,7 +35,22 @@ const getCoefficients = (str) => {
 };
 
 const nonInteractiveMode = async () => {
-  console.log('non-interactive');
+  try {
+    const filePath = process.argv[2];
+    const text = await fs.readFile(filePath, 'utf-8');
+    const coefficients = getCoefficients(text);
+
+    if (!coefficients) {
+      handleError('Error: invalid file format', true);
+    }
+
+    if (!coefficients.a) {
+      handleError('Error: a cannot be zero', true);
+    }
+
+  } catch (e) {
+    handleError('Error: cannot read file', true);
+  }
 };
 
 const start = () => {
