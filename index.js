@@ -46,6 +46,20 @@ const getCoefficients = (str) => {
   };
 };
 
+const calculate = (a, b, c) => {
+  const D = b * b - 4 * a * c;
+  const roots = [];
+
+  if (D === 0) {
+    roots.push(-b / (2 * a));
+  } else if (D > 0) {
+    roots.push((-b + Math.sqrt(D)) / (2 * a));
+    roots.push((-b - Math.sqrt(D)) / (2 * a));
+  }
+
+  return roots;
+};
+
 const nonInteractiveMode = async () => {
   try {
     const filePath = process.argv[2];
