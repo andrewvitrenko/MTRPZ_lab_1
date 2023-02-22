@@ -4,6 +4,14 @@ const formatNumber = (num) => {
   return num.toFixed(1);
 };
 
+const showRoots = (roots) => {
+  console.log(`There are ${roots.length} roots`);
+
+  roots.forEach((root, index) => {
+    console.log(`x${index + 1} = ${formatNumber(root)}`);
+  });
+};
+
 const showEquation = (a, b , c) => {
   const equationStr = `(${a}) x^2 + (${b}) x + (${c}) = 0`;
   console.log(`Equation is: ${equationStr}`);
