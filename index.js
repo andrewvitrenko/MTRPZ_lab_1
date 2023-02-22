@@ -13,7 +13,7 @@ const showRoots = (roots) => {
 };
 
 const showEquation = (a, b , c) => {
-  const equationStr = `(${a}) x^2 + (${b}) x + (${c}) = 0`;
+  const equationStr = `(${formatNumber(a)}) x^2 + (${formatNumber(b)}) x + (${formatNumber(c)}) = 0`;
   console.log(`Equation is: ${equationStr}`);
 };
 
