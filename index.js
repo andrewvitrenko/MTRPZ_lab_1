@@ -34,6 +34,12 @@ const getCoefficients = (str) => {
   };
 };
 
+const calculate = (a, b, c) => {
+  const roots = [];
+
+  return roots;
+};
+
 const nonInteractiveMode = async () => {
   try {
     const filePath = process.argv[2];
