@@ -74,6 +74,11 @@ const nonInteractiveMode = async () => {
       handleError('Error: a cannot be zero', true);
     }
 
+    const { a, b, c } = coefficients;
+    showEquation(a, b, c);
+    const roots = calculate(a, b, c);
+    showRoots(roots);
+
   } catch (e) {
     handleError('Error: cannot read file', true);
   }
