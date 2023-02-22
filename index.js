@@ -1,5 +1,7 @@
 const fs = require('fs/promises');
 
+// common utils
+
 const formatNumber = (num) => {
   return num.toFixed(1);
 };
@@ -22,9 +24,21 @@ const handleError = (message, exit = false) => {
   exit && process.exit(1);
 };
 
-const interactiveMode = async () => {
-  console.log('interactive');
+const calculate = (a, b, c) => {
+  const D = b * b - 4 * a * c;
+  const roots = [];
+
+  if (D === 0) {
+    roots.push(-b / (2 * a));
+  } else if (D > 0) {
+    roots.push((-b + Math.sqrt(D)) / (2 * a));
+    roots.push((-b - Math.sqrt(D)) / (2 * a));
+  }
+
+  return roots;
 };
+
+// non-interactive utils
 
 const getCoefficients = (str) => {
   const numArray = str.split(' ');
@@ -40,20 +54,6 @@ const getCoefficients = (str) => {
   }
 
   return numArray.map(num => +num);
-};
-
-const calculate = (a, b, c) => {
-  const D = b * b - 4 * a * c;
-  const roots = [];
-
-  if (D === 0) {
-    roots.push(-b / (2 * a));
-  } else if (D > 0) {
-    roots.push((-b + Math.sqrt(D)) / (2 * a));
-    roots.push((-b - Math.sqrt(D)) / (2 * a));
-  }
-
-  return roots;
 };
 
 const nonInteractiveMode = async () => {
@@ -78,6 +78,10 @@ const nonInteractiveMode = async () => {
   } catch (e) {
     handleError('Error: cannot read file', true);
   }
+};
+
+const interactiveMode = async () => {
+  console.log('interactive');
 };
 
 const start = () => {
