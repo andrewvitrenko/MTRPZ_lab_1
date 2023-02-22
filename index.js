@@ -3,6 +3,11 @@ const showEquation = (a, b , c) => {
   console.log(`Equation is: ${equationStr}`);
 };
 
+const handleError = (message, exit = false) => {
+  console.log(message);
+  exit && process.exit(1);
+};
+
 const interactiveMode = async () => {
   console.log('interactive');
 };
