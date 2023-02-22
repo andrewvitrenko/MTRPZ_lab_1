@@ -1,5 +1,9 @@
 const fs = require('fs/promises');
 
+const formatNumber = (num) => {
+  return num.toFixed(1);
+};
+
 const showEquation = (a, b , c) => {
   const equationStr = `(${a}) x^2 + (${b}) x + (${c}) = 0`;
   console.log(`Equation is: ${equationStr}`);
