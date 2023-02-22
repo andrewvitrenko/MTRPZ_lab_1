@@ -1,3 +1,8 @@
+const showEquation = (a, b , c) => {
+  const equationStr = `(${a}) x^2 + (${b}) x + (${c}) = 0`;
+  console.log(`Equation is: ${equationStr}`);
+};
+
 const interactiveMode = async () => {
   console.log('interactive');
 };
