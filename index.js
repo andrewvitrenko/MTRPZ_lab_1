@@ -105,7 +105,18 @@ const getCoefficientInput = (coefName) => {
 };
 
 const interactiveMode = async () => {
-  console.log('interactive');
+  const a = getCoefficientInput('a');
+
+  if (!a) {
+    handleError('Error: a cannot be a zero', true);
+  }
+
+  const b = getCoefficientInput('b');
+  const c = getCoefficientInput('c');
+
+  showEquation(a, b, c);
+  const roots = calculate(a, b, c);
+  showRoots(roots);
 };
 
 const start = () => {
