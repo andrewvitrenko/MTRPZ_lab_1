@@ -94,7 +94,7 @@ const validateInput = (input) => {
   return true;
 };
 
-const getCoefficientInput = (coefName) => {
+const getCoefficient = (coefName) => {
   let coefficient = '';
 
   do {
@@ -105,14 +105,14 @@ const getCoefficientInput = (coefName) => {
 };
 
 const interactiveMode = async () => {
-  const a = getCoefficientInput('a');
+  const a = getCoefficient('a');
 
   if (!a) {
     handleError('Error: a cannot be a zero', true);
   }
 
-  const b = getCoefficientInput('b');
-  const c = getCoefficientInput('c');
+  const b = getCoefficient('b');
+  const c = getCoefficient('c');
 
   showEquation(a, b, c);
   const roots = calculate(a, b, c);
