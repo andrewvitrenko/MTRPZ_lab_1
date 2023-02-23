@@ -80,6 +80,19 @@ const nonInteractiveMode = async () => {
   }
 };
 
+// interactive utils
+
+const validateInput = (input) => {
+  const num = +input;
+
+  if (Number.isNaN(num)) {
+    handleError(`Error. Expected a valid real number, got ${input} instead`);
+    return false;
+  }
+
+  return true;
+};
+
 const interactiveMode = async () => {
   console.log('interactive');
 };
