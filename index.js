@@ -1,4 +1,5 @@
 const fs = require('fs/promises');
+const prompt = require('prompt-sync')({ sigint: true });
 
 // common utils
 
@@ -91,6 +92,16 @@ const validateInput = (input) => {
   }
 
   return true;
+};
+
+const getCoefficientInput = (coefName) => {
+  let coefficient = '';
+
+  do {
+    coefficient = prompt(`${coefName} = `);
+  } while(!validateInput(coefficient))
+
+  return +coefficient;
 };
 
 const interactiveMode = async () => {
