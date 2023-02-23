@@ -58,8 +58,8 @@ const parseCoefficients = (str) => {
 };
 
 const nonInteractiveMode = async () => {
+  const filePath = process.argv[2];
   try {
-    const filePath = process.argv[2];
     const text = await fs.readFile(filePath, 'utf-8');
     const coefficients = parseCoefficients(text);
 
@@ -77,7 +77,7 @@ const nonInteractiveMode = async () => {
     showRoots(roots);
 
   } catch (e) {
-    handleError('Error: cannot read file', true);
+    handleError(`Error: file ${filePath} does not exist`, true);
   }
 };
 
