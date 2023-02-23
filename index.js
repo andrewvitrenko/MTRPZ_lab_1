@@ -41,7 +41,7 @@ const calculate = (a, b, c) => {
 
 // non-interactive utils
 
-const getCoefficients = (str) => {
+const parseCoefficients = (str) => {
   const numArray = str.split(' ');
 
   if (numArray.length !== 3) {
@@ -61,7 +61,7 @@ const nonInteractiveMode = async () => {
   try {
     const filePath = process.argv[2];
     const text = await fs.readFile(filePath, 'utf-8');
-    const coefficients = getCoefficients(text);
+    const coefficients = parseCoefficients(text);
 
     if (!coefficients) {
       handleError('Error: invalid file format', true);
